@@ -1,24 +1,47 @@
 // Complete the js code
-function Car(make, model) {
-	this._make = make;
-	this._model = model;
+// function Car(make, model) {
+// 	this._make = make;
+// 	this._model = model;
+// }
+
+// Car.prototype.getMakeModel = function (){
+// 	return `${this._make} ${this._model}`;
+// }
+
+// function SportsCar(make, model, topSpeed) {
+// 	Car.call(this, make, model);
+// 	this._topSpeed = topSpeed;
+// }
+
+// // 🔥 IMPORTANT: Inheritance setup
+// SportsCar.prototype = Object.create(Car.prototype);
+// SportsCar.prototype.constructor = SportsCar;
+
+// SportsCar.prototype.getTopSpeed = function (){
+// 	return this._topSpeed;
+// }
+
+
+// another way
+class Car{
+	constructor(make, model) {
+		this.make=make;
+		this.model=model;
+	}
+	getMakeModel()
+	{
+		return `${this.make} ${this.model}`
+	}
 }
-
-Car.prototype.getMakeModel = function (){
-	return `${this._make} ${this._model}`;
-}
-
-function SportsCar(make, model, topSpeed) {
-	Car.call(this, make, model);
-	this._topSpeed = topSpeed;
-}
-
-// 🔥 IMPORTANT: Inheritance setup
-SportsCar.prototype = Object.create(Car.prototype);
-SportsCar.prototype.constructor = SportsCar;
-
-SportsCar.prototype.getTopSpeed = function (){
-	return this._topSpeed;
+class SportsCar extends Car{
+	constructor(make, model, topSpeed) {
+		super(make,model);
+		this.topSpeed=topSpeed;
+	}
+	getTopSpeed()
+	{
+		return this.topSpeed;
+	}
 }
 
 // Do not change the code below
